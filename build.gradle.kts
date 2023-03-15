@@ -3,7 +3,7 @@ plugins {
     application
 }
 
-group = "org.example"
+group = "com.esgi"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    testImplementation(kotlin("travel"))
 }
 
 tasks.test {
