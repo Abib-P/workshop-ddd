@@ -1,6 +1,6 @@
 package com.esgi.travel.domain.model
 
-class Housing(val address: Adresse, val maxPerson : Int, val price : Double) {
+class Housing(id: GenericID, val address: Adresse, val maxPerson : Int, val price : Double) :Entity(id) {
 
     init {
         if(maxPerson < 1){

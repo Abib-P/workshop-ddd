@@ -2,7 +2,7 @@ package com.esgi.travel.domain.model
 
 import java.time.LocalDateTime
 
-class Transport(val type: String, val price: Double, val departureTime: LocalDateTime, val departureAdresse: Adresse, val arrivedTime: LocalDateTime, val destination: Adresse) {
+class Transport(id: GenericID, val type: String, val price: Double, val departureTime: LocalDateTime, val departureAdresse: Adresse, val arrivedTime: LocalDateTime, val destination: Adresse) :Entity(id) {
 
     init {
         if (departureAdresse == destination) {

@@ -2,7 +2,7 @@ package com.esgi.travel.domain.model
 
 import java.time.LocalDate
 
-class Attendant(val mail: Mail, val birthdate: LocalDate, val name: String, val firstName: String) {
+class Attendant(id: GenericID, val mail: Mail, val birthdate: LocalDate, val name: String, val firstName: String) : Entity(id) {
 
     init {
         if (birthdate.isAfter(LocalDate.now())) {

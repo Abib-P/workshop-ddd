@@ -1,12 +1,12 @@
 package com.esgi.travel.domain.model
 
-class Activity(
-    val name: String,
-    val description: String,
-    val price: Double,
-    val duration: Int,
-    val restrictions: List<ActivityRestriction>
-) {
+class Activity(id: GenericID,
+               val name : String,
+               val description : String,
+               val price : Double,
+               val duration : Int,
+               val restriction: List<ActivityRestriction>) : Entity(id) {
+
     init {
         if (name.isEmpty()) {
             throw IllegalArgumentException("name must not be empty")
