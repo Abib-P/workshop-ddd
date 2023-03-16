@@ -17,4 +17,12 @@ class Attendant(id: GenericID, val mail: Mail, val birthdate: LocalDate, val nam
         }
     }
 
+    fun getAge(): Int {
+        val today = LocalDate.now()
+        var age = today.year - birthdate.year
+        if (birthdate.monthValue > today.monthValue || (birthdate.monthValue == today.monthValue && birthdate.dayOfMonth > today.dayOfMonth)) {
+            age--
+        }
+        return age
+    }
 }

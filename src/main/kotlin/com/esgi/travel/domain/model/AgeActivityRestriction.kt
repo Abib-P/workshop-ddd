@@ -7,7 +7,8 @@ class AgeActivityRestriction(val minAge: Int, val maxAge: Int) : ActivityRestric
         }
     }
 
-    override fun isSatisfied(): Boolean {
-        TODO("Not yet implemented")
+    override fun isSatisfied(attendant: Attendant): Boolean {
+        val age = attendant.getAge()
+        return age in minAge..maxAge
     }
 }
