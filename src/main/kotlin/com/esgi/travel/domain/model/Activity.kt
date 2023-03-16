@@ -5,8 +5,10 @@ class Activity(
     val name: String,
     val description: String,
     val price: Double,
-    val duration: Int,
-    val restriction: List<ActivityRestriction>
+    val duration: Period,
+    val restriction: List<ActivityRestriction>,
+    val address: Address,
+    val capacity: Int,
 ) : Entity(id) {
 
     init {
@@ -18,9 +20,6 @@ class Activity(
         }
         if (price < 0) {
             throw IllegalArgumentException("price must be greater than 0")
-        }
-        if (duration < 0) {
-            throw IllegalArgumentException("duration must be greater than 0")
         }
     }
 }

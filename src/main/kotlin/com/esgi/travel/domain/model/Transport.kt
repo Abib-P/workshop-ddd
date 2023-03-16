@@ -7,13 +7,13 @@ class Transport(
     val type: String,
     val price: Double,
     val departureTime: LocalDateTime,
-    val departureAdresse: Adresse,
+    val departureAddress: Address,
     val arrivedTime: LocalDateTime,
-    val destination: Adresse
+    val destination: Address
 ) : Entity(id) {
 
     init {
-        if (departureAdresse == destination) {
+        if (departureAddress == destination) {
             throw IllegalArgumentException("Departure and destination must be different")
         }
         if (departureTime.isAfter(arrivedTime)) {
