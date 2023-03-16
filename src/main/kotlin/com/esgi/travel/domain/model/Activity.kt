@@ -1,11 +1,13 @@
 package com.esgi.travel.domain.model
 
-class Activity(id: GenericID,
-               val name : String,
-               val description : String,
-               val price : Double,
-               val duration : Int,
-               val restriction: List<ActivityRestriction>) : Entity(id) {
+class Activity(
+    id: GenericID,
+    val name: String,
+    val description: String,
+    val price: Double,
+    val duration: Int,
+    val restriction: List<ActivityRestriction>
+) : Entity(id) {
 
     init {
         if (name.isEmpty()) {
@@ -17,7 +19,7 @@ class Activity(id: GenericID,
         if (price < 0) {
             throw IllegalArgumentException("price must be greater than 0")
         }
-        if(duration < 0){
+        if (duration < 0) {
             throw IllegalArgumentException("duration must be greater than 0")
         }
     }

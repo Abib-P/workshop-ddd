@@ -2,7 +2,15 @@ package com.esgi.travel.domain.model
 
 import java.time.LocalDateTime
 
-class Transport(id: GenericID, val type: String, val price: Double, val departureTime: LocalDateTime, val departureAdresse: Adresse, val arrivedTime: LocalDateTime, val destination: Adresse) :Entity(id) {
+class Transport(
+    id: GenericID,
+    val type: String,
+    val price: Double,
+    val departureTime: LocalDateTime,
+    val departureAdresse: Adresse,
+    val arrivedTime: LocalDateTime,
+    val destination: Adresse
+) : Entity(id) {
 
     init {
         if (departureAdresse == destination) {
@@ -11,10 +19,10 @@ class Transport(id: GenericID, val type: String, val price: Double, val departur
         if (departureTime.isAfter(arrivedTime)) {
             throw IllegalArgumentException("Start time must be before arrived time")
         }
-        if(price < 0) {
+        if (price < 0) {
             throw IllegalArgumentException("Price must be positive")
         }
-        if(type.isEmpty()) {
+        if (type.isEmpty()) {
             throw IllegalArgumentException("Type must not be empty")
         }
     }
