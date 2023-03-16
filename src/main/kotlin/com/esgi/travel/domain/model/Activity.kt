@@ -1,15 +1,20 @@
 package com.esgi.travel.domain.model
 
-class Activity(val name : String, val description : String, val price : Double, val duration : Int, val restriction: List<ActiviteRestriction>) {
-
+class Activity(
+    val name: String,
+    val description: String,
+    val price: Double,
+    val duration: Int,
+    val restrictions: List<ActivityRestriction>
+) {
     init {
-        if(name.isEmpty()){
+        if (name.isEmpty()) {
             throw IllegalArgumentException("name must not be empty")
         }
-        if(description.isEmpty()){
+        if (description.isEmpty()) {
             throw IllegalArgumentException("description must not be empty")
         }
-        if(price < 0){
+        if (price < 0) {
             throw IllegalArgumentException("price must be greater than 0")
         }
         if(duration < 0){
