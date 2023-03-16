@@ -1,9 +1,7 @@
 package com.esgi.travel.domain.model
 
-class Transport {
-    //heure de départ
-    //heure d'arrivée
-    //gare de départ
-    //gare d'arrivée
-    //nb personnes
+import java.time.LocalDateTime
+
+class Transport(val type: String, val price: Double, val startTime: LocalDateTime, val arrivedTime: LocalDateTime) {
+
 }
