@@ -6,7 +6,7 @@ class Activity(
     val description: String,
     val price: Double,
     val duration: Period,
-    val restriction: List<ActivityRestriction>,
+    val restrictions: List<ActivityRestriction>,
     val address: Address,
     val capacity: Int,
 ) : Entity(id) {

@@ -1,10 +1,8 @@
 package com.esgi.travel.domain.model
 
 class GenericID(val value: String) {
-    init {
-        if (value.isEmpty()) {
-            throw IllegalArgumentException("id must not be empty")
-        }
+    companion object {
+        val EMPTY = GenericID("")
     }
 
     override fun equals(other: Any?): Boolean {
