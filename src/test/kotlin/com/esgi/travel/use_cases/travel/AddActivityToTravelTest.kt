@@ -374,7 +374,7 @@ class AddActivityToTravelTest {
                 name = "Activity name",
                 description = "Activity description",
                 price = 10.0,
-                duration = Period(LocalDateTime.of(2020, 1, 1, 10, 11), LocalDateTime.of(2020, 1, 1, 10, 30)),
+                duration = Period(LocalDateTime.of(2020, 1, 1, 10, 0), LocalDateTime.of(2020, 1, 1, 10, 30)),
                 restrictions = listOf(),
                 address = Address("City", "Country"),
                 capacity = 10
