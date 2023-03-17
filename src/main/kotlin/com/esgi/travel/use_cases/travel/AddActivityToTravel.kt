@@ -5,7 +5,6 @@ import com.esgi.travel.domain.repository.Travels
 import com.esgi.travel.use_cases.travel.activity.dto.AddActivityToTravelRequest
 
 class AddActivityToTravel(val travels: Travels, val activities: Activities) {
-    //todo si les personne ne sont pas déjà dans le voyage les rajouter
     fun addActivityToTravel(addActivityToTravelRequest: AddActivityToTravelRequest) {
         val travel = travels.getById(addActivityToTravelRequest.travelId) ?: throw Exception("Travel not found")
         val activity = activities.getById(addActivityToTravelRequest.activityId) ?: throw Exception("Activity not found")
