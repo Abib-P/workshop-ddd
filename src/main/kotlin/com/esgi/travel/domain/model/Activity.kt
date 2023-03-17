@@ -22,4 +22,8 @@ class Activity(
             throw IllegalArgumentException("price must be greater than 0")
         }
     }
+
+    fun canParticipate(attendant: Attendant): Boolean {
+        return restrictions.all { it.isSatisfied(attendant) }
+    }
 }

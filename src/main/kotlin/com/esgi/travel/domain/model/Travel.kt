@@ -5,7 +5,7 @@ class Travel(
     val period: Period,
     val client: Client,
     val destination: Address,
-    val Attendants: List<Attendant>,
+    val attendants: List<Attendant>,
     val budget: Budget,
     val state: TravelState,
     val activitiesIds: List<GenericID>,
@@ -13,6 +13,10 @@ class Travel(
 
     init {
 
+    }
+
+    fun addActivity(activity: Activity){
+        activitiesIds.plus(activity.id)
     }
 
 }
