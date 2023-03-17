@@ -11,7 +11,6 @@ class InMemoryHousings : Housings {
         Housing(
             id = GenericID("1"),
             address = Address(
-                address = "rue de la paix",
                 city = "Paris",
                 country = "France"
             ),
@@ -22,7 +21,6 @@ class InMemoryHousings : Housings {
         Housing(
             id = GenericID("2"),
             address = Address(
-                address = "12 Queensway",
                 city = "Londres",
                 country = "Royaume-Uni"
             ),
@@ -33,7 +31,6 @@ class InMemoryHousings : Housings {
         Housing(
             id = GenericID("3"),
             address = Address(
-                address = "1 Carmine Street",
                 city = "New York",
                 country = "Etats-Unis"
             ),

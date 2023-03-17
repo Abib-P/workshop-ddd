@@ -21,7 +21,7 @@ class InMemoryActivities : Activities {
             ),
             listOf<ActivityRestriction>(
             ),
-            Address("1 Avenue Voltaire", "Paris", "France"),
+            Address( "Paris", "France"),
             10
         ),
         Activity(
@@ -36,7 +36,7 @@ class InMemoryActivities : Activities {
             ),
             listOf<ActivityRestriction>(
             ),
-            Address("1 Saint John Street", "Londres", "Royaume-Uni"),
+            Address( "Londres", "Royaume-Uni"),
             10
         ),
         Activity(
@@ -51,7 +51,7 @@ class InMemoryActivities : Activities {
             ),
             listOf<ActivityRestriction>(
             ),
-            Address("1 Carmine Street", "New York", "Etats-Unis"),
+            Address("New York", "Etats-Unis"),
             10
         ),
         Activity(
@@ -67,7 +67,7 @@ class InMemoryActivities : Activities {
             listOf<ActivityRestriction>(
                 AgeActivityRestriction(18, 99)
             ),
-            Address("Godzilla Road", "Tokyo", "Japon"),
+            Address("Tokyo", "Japon"),
             10
         ),
     )

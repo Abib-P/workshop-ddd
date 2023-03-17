@@ -10,7 +10,7 @@ class HousingTest {
     fun `should create a housing`() {
         val housing = Housing(
             id = GenericID("1"),
-            address = Address("1 rue de la paix", "Paris", "France"),
+            address = Address("Paris", "France"),
             maxPerson = 3,
             price = 100.0,
             name = "Housing",
@@ -26,7 +26,7 @@ class HousingTest {
         assertThrows(IllegalArgumentException::class.java) {
             Housing(
                 id = GenericID("1"),
-                address = Address("1 rue de la paix", "Paris", "France"),
+                address = Address("Paris", "France"),
                 maxPerson = maxPerson,
                 price = 100.0,
                 name = "Housing"
@@ -39,7 +39,7 @@ class HousingTest {
         assertThrows(IllegalArgumentException::class.java) {
             Housing(
                 id = GenericID("1"),
-                address = Address("1 rue de la paix", "Paris", "France"),
+                address = Address("Paris", "France"),
                 maxPerson = 3,
                 price = -100.0,
                 name = "Housing"
@@ -52,7 +52,7 @@ class HousingTest {
         assertThrows(IllegalArgumentException::class.java) {
             Housing(
                 id = GenericID("1"),
-                address = Address("1 rue de la paix", "Paris", "France"),
+                address = Address("Paris", "France"),
                 maxPerson = 3,
                 price = 100.0,
                 name = ""

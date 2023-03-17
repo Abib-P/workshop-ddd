@@ -14,7 +14,7 @@ class ActivityTest {
             price = 10.0,
             duration = Period(LocalDateTime.of(2020, 1, 1, 0, 0), LocalDateTime.of(2020, 1, 1, 0, 10)),
             restrictions = listOf(),
-            address = Address("Address", "City", "Country"),
+            address = Address("City", "Country"),
             capacity = 10
         )
 
@@ -35,7 +35,7 @@ class ActivityTest {
                 price = 10.0,
                 duration = Period(LocalDateTime.of(2020, 1, 1, 0, 0), LocalDateTime.of(2020, 1, 1, 0, 10)),
                 restrictions = listOf(),
-                address = Address("Address", "City", "Country"),
+                address = Address( "City", "Country"),
                 capacity = 10
             )
         }
@@ -51,7 +51,7 @@ class ActivityTest {
                 price = 10.0,
                 duration = Period(LocalDateTime.of(2020, 1, 1, 0, 0), LocalDateTime.of(2020, 1, 1, 0, 10)),
                 restrictions = listOf(),
-                address = Address("Address", "City", "Country"),
+                address = Address("City", "Country"),
                 capacity = 10
             )
         }
@@ -67,7 +67,7 @@ class ActivityTest {
                 price = -10.0,
                 duration = Period(LocalDateTime.of(2020, 1, 1, 0, 0), LocalDateTime.of(2020, 1, 1, 0, 10)),
                 restrictions = listOf(),
-                address = Address("Address", "City", "Country"),
+                address = Address( "City", "Country"),
                 capacity = 10
             )
         }

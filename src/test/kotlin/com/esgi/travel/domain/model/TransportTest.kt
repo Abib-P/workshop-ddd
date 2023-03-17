@@ -15,13 +15,11 @@ class TransportTest {
             price = 10.0,
             departureTime = LocalDateTime.of(2021, 1, 1, 0, 0),
             departureAddress = Address(
-                address = "1 rue de la paix",
                 city = "Paris",
                 country = "France",
             ),
             arrivedTime = LocalDateTime.of(2021, 1, 2, 0, 0),
             destination = Address(
-                address = "5 rue de la paix",
                 city = "Marseille",
                 country = "France",
             )
@@ -31,13 +29,11 @@ class TransportTest {
         assertEquals(transport.price, 10.0)
         assertEquals(transport.departureTime, LocalDateTime.of(2021, 1, 1, 0, 0))
         assertEquals(transport.departureAddress, Address(
-            address = "1 rue de la paix",
             city = "Paris",
             country = "France",
         ))
         assertEquals(transport.arrivedTime, LocalDateTime.of(2021, 1, 2, 0, 0))
         assertEquals(transport.destination, Address(
-            address = "5 rue de la paix",
             city = "Marseille",
             country = "France",
         ))
@@ -52,13 +48,11 @@ class TransportTest {
                 price = 10.0,
                 departureTime = LocalDateTime.now().plusDays(1),
                 departureAddress = Address(
-                    address = "1 rue de la paix",
                     city = "Paris",
                     country = "France",
                 ),
                 arrivedTime = LocalDateTime.now().plusDays(2),
                 destination = Address(
-                    address = "1 rue de la paix",
                     city = "Paris",
                     country = "France",
                 )
@@ -77,13 +71,11 @@ class TransportTest {
                 price = 10.0,
                 departureTime = LocalDateTime.now().plusDays(2),
                 departureAddress = Address(
-                    address = "1 rue de la paix",
                     city = "Paris",
                     country = "France",
                 ),
                 arrivedTime = LocalDateTime.now().plusDays(1),
                 destination = Address(
-                    address = "5 rue de la paix",
                     city = "Marceille",
                     country = "France",
                 )
@@ -94,22 +86,20 @@ class TransportTest {
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = [-10.0, 0.0])
+    @ValueSource(doubles = [-10.0, -0.01])
     fun `should throw exception when price is negative`(price: Double) {
         val exception = org.junit.jupiter.api.assertThrows<IllegalArgumentException> {
             Transport(
                 id = GenericID.EMPTY,
                 type = "Bus",
-                price = -10.0,
+                price = price,
                 departureTime = LocalDateTime.now().plusDays(1),
                 departureAddress = Address(
-                    address = "1 rue de la paix",
                     city = "Paris",
                     country = "France",
                 ),
                 arrivedTime = LocalDateTime.now().plusDays(2),
                 destination = Address(
-                    address = "5 rue de la paix",
                     city = "Marseille",
                     country = "France",
                 )
@@ -128,13 +118,11 @@ class TransportTest {
                 price = 10.0,
                 departureTime = LocalDateTime.now().plusDays(1),
                 departureAddress = Address(
-                    address = "1 rue de la paix",
                     city = "Paris",
                     country = "France",
                 ),
                 arrivedTime = LocalDateTime.now().plusDays(2),
                 destination = Address(
-                    address = "5 rue de la paix",
                     city = "Marseille",
                     country = "France",
                 )
