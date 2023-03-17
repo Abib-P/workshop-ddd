@@ -2,6 +2,7 @@ package com.esgi.travel.domain.service
 
 import com.esgi.travel.domain.model.Activity
 import com.esgi.travel.domain.model.Attendant
+import com.esgi.travel.domain.model.Travel
 import com.esgi.travel.use_cases.travel.activity.dto.SearchActivityRequest
 
 class ActivityService {
@@ -13,7 +14,7 @@ class ActivityService {
             .filter { it.duration.end.isBefore(searchActivityRequest.endDate) }
     }
 
-    fun checkCanAddToTravel(activity: Activity, attendants: List<Attendant>) {
+    fun checkCanAddToTravel(travel: Travel, activity: Activity, attendants: List<Attendant>) {
         if(activity.capacity < attendants.size) {
             throw Exception("Activity is full")
         }
@@ -22,6 +23,14 @@ class ActivityService {
             if(!activity.canParticipate(attendant)) {
                 throw Exception("Attendant can't participate to this activity")
             }
+
+            val attendantActivities = travel.getAttendantActivities(attendant)
+            for (attendantActivity in attendantActivities) {
+                if(attendantActivity.duration.overlaps(activity.duration)) {
+                    throw Exception("Attendant already has an activity at this time")
+                }
+            }
+
         }
     }
 

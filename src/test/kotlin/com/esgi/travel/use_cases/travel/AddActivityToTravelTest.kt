@@ -355,18 +355,6 @@ class AddActivityToTravelTest {
 
     @Test
     fun `should not add activity to travel when attendant already have a activity at this time`() {
-        whenever(activities.getById(activityId = GenericID("activity1"))).thenReturn(
-            Activity(
-                id = GenericID("activity1"),
-                name = "Activity name",
-                description = "Activity description",
-                price = 10.0,
-                duration = Period(LocalDateTime.of(2020, 1, 1, 8, 0), LocalDateTime.of(2020, 1, 1, 10, 10)),
-                restrictions = listOf(),
-                address = Address("City", "Country"),
-                capacity = 10
-            )
-        )
 
         whenever(activities.getById(activityId = GenericID("activity2"))).thenReturn(
             Activity(
@@ -405,7 +393,16 @@ class AddActivityToTravelTest {
                 budget = Budget(0.0, 100.0),
                 state = TravelState.OPENED,
                 activitiesIds = mapOf(
-                    GenericID("activity1") to listOf(
+                    Activity(
+                        id = GenericID("activity1"),
+                        name = "Activity name",
+                        description = "Activity description",
+                        price = 10.0,
+                        duration = Period(LocalDateTime.of(2020, 1, 1, 8, 0), LocalDateTime.of(2020, 1, 1, 10, 10)),
+                        restrictions = listOf(),
+                        address = Address("City", "Country"),
+                        capacity = 10
+                    ) to listOf(
                         GenericID("attendant1")
                     )
                 )
