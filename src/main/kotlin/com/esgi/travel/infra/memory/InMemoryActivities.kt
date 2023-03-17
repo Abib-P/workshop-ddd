@@ -80,4 +80,8 @@ class InMemoryActivities : Activities {
             .filter { it.duration.start.isAfter(searchActivityRequest.startDate) }
             .filter { it.duration.end.isBefore(searchActivityRequest.endDate) }
     }
+
+    override fun getById(activityId: GenericID): Activity? {
+        return activities.find { it.id == activityId }
+    }
 }

@@ -16,7 +16,7 @@ data class TravelInformation(
     fun toTravel(client: Client) = Travel(
         period = Period(start = start, end = end),
         activitiesIds = listOf(),
-        Attendants = attendants.map { it.toAttendant() },
+        attendants = attendants.map { it.toAttendant() },
         id = GenericID.EMPTY,
         budget = Budget(min = budgetMin, max = budgetMax),
         client = client,
