@@ -5,4 +5,5 @@ import com.esgi.travel.use_cases.travel.housing.dto.SearchHousingRequest
 
 interface Housings {
     fun searchHousings(searchHousingRequest: SearchHousingRequest): List<Housing>
+    fun fetchHousing(): List<Housing>?
 }

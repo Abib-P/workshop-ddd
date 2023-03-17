@@ -43,4 +43,8 @@ class InMemoryHousings : Housings {
     override fun searchHousings(searchHousingRequest: SearchHousingRequest): List<Housing> {
         return housings
     }
+
+    override fun fetchHousing(): List<Housing> {
+        return housings
+    }
 }
