@@ -2,7 +2,6 @@ package com.esgi.travel.infra.memory
 
 import com.esgi.travel.domain.model.*
 import com.esgi.travel.domain.repository.Activities
-import com.esgi.travel.use_cases.travel.activity.dto.SearchActivityRequest
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.Month
@@ -72,7 +71,6 @@ class InMemoryActivities : Activities {
         ),
     )
 
-    //todo faire le filter ici? (ptetre mieux de faire ça dans le service)
     override fun fetchActivities(): List<Activity> {
         return activities
     }
