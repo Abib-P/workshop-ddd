@@ -13,6 +13,10 @@ class AddActivityToTravel(val travels: Travels, val activities: Activities) {
             travel.attendants.find { attendant -> attendant.id == attendantId } ?: throw Exception("Attendant not found")
         }
 
+        if(activity.capacity < attendants.size) {
+            throw Exception("Activity is full")
+        }
+
         for (attendant in attendants) {
             if(!activity.canParticipate(attendant)) {
                 throw Exception("Attendant can't participate to this activity")
