@@ -21,10 +21,55 @@ class ActivityTest {
         assertEquals("Activity name", activity.name)
         assertEquals("Activity description", activity.description)
         assertEquals(10.0, activity.price)
-        assertEquals(Period(LocalDateTime.of(2020, 1, 1, 0, 0), LocalDateTime.of(2020, 1, 1, 0, 10)), activity.duration)
         assertEquals(emptyList<ActivityRestriction>(), activity.restrictions)
-        assertEquals(Address("Address", "City", "Country"), activity.address)
         assertEquals(10, activity.capacity)
     }
 
+    @Test
+    fun `should throw an exception when name is empty`() {
+        assertThrows(IllegalArgumentException::class.java) {
+            Activity(
+                id = GenericID.EMPTY,
+                name = "",
+                description = "Activity description",
+                price = 10.0,
+                duration = Period(LocalDateTime.of(2020, 1, 1, 0, 0), LocalDateTime.of(2020, 1, 1, 0, 10)),
+                restrictions = listOf(),
+                address = Address("Address", "City", "Country"),
+                capacity = 10
+            )
+        }
+    }
+
+    @Test
+    fun `should throw an exception when description is empty`() {
+        assertThrows(IllegalArgumentException::class.java) {
+            Activity(
+                id = GenericID.EMPTY,
+                name = "Activity name",
+                description = "",
+                price = 10.0,
+                duration = Period(LocalDateTime.of(2020, 1, 1, 0, 0), LocalDateTime.of(2020, 1, 1, 0, 10)),
+                restrictions = listOf(),
+                address = Address("Address", "City", "Country"),
+                capacity = 10
+            )
+        }
+    }
+
+    @Test
+    fun `should throw an exception when price is negative`() {
+        assertThrows(IllegalArgumentException::class.java) {
+            Activity(
+                id = GenericID.EMPTY,
+                name = "Activity name",
+                description = "Activity description",
+                price = -10.0,
+                duration = Period(LocalDateTime.of(2020, 1, 1, 0, 0), LocalDateTime.of(2020, 1, 1, 0, 10)),
+                restrictions = listOf(),
+                address = Address("Address", "City", "Country"),
+                capacity = 10
+            )
+        }
+    }
 }
