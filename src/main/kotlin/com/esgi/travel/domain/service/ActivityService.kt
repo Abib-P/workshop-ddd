@@ -15,6 +15,10 @@ class ActivityService {
     }
 
     fun checkCanAddToTravel(travel: Travel, activity: Activity, attendants: List<Attendant>) {
+        if(!travel.period.contains(activity.duration)) {
+            throw Exception("Activity is not in travel period")
+        }
+
         if(activity.capacity < attendants.size) {
             throw Exception("Activity is full")
         }

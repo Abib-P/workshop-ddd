@@ -12,4 +12,8 @@ class Period(val start: LocalDateTime, val end: LocalDateTime) {
     fun overlaps(other: Period): Boolean {
         return start.isBefore(other.end) && end.isAfter(other.start)
     }
+
+    fun contains(other: Period): Boolean {
+        return start.isBefore(other.start) && end.isAfter(other.end)
+    }
 }
