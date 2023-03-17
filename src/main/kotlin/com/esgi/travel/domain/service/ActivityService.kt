@@ -1,6 +1,7 @@
 package com.esgi.travel.domain.service
 
 import com.esgi.travel.domain.model.Activity
+import com.esgi.travel.domain.model.Attendant
 import com.esgi.travel.use_cases.travel.activity.dto.SearchActivityRequest
 
 class ActivityService {
@@ -10,6 +11,18 @@ class ActivityService {
             .filter { it.price <= searchActivityRequest.maxPrice && it.price >= searchActivityRequest.minPrice }
             .filter { it.duration.start.isAfter(searchActivityRequest.startDate) }
             .filter { it.duration.end.isBefore(searchActivityRequest.endDate) }
+    }
+
+    fun canAddToTravel(activity: Activity, attendants: List<Attendant>) {
+        if(activity.capacity < attendants.size) {
+            throw Exception("Activity is full")
+        }
+
+        for (attendant in attendants) {
+            if(!activity.canParticipate(attendant)) {
+                throw Exception("Attendant can't participate to this activity")
+            }
+        }
     }
 
 }

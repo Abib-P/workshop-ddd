@@ -3,6 +3,7 @@ package com.esgi.travel.use_cases.travel
 import com.esgi.travel.domain.model.*
 import com.esgi.travel.domain.repository.Activities
 import com.esgi.travel.domain.repository.Travels
+import com.esgi.travel.domain.service.ActivityService
 import com.esgi.travel.use_cases.travel.activity.dto.AddActivityToTravelRequest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -19,12 +20,14 @@ class AddActivityToTravelTest {
     lateinit var addActivity: AddActivityToTravel
     lateinit var activities: Activities
     lateinit var travels: Travels
+    lateinit var activityService: ActivityService
 
     @BeforeEach
     fun setUp() {
         activities = mock()
         travels = mock()
-        addActivity = AddActivityToTravel(travels, activities)
+        activityService = ActivityService()
+        addActivity = AddActivityToTravel(travels, activities, activityService)
     }
 
     @Test
