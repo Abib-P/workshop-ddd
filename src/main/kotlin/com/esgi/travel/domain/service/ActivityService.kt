@@ -13,7 +13,7 @@ class ActivityService {
             .filter { it.duration.end.isBefore(searchActivityRequest.endDate) }
     }
 
-    fun canAddToTravel(activity: Activity, attendants: List<Attendant>) {
+    fun checkCanAddToTravel(activity: Activity, attendants: List<Attendant>) {
         if(activity.capacity < attendants.size) {
             throw Exception("Activity is full")
         }

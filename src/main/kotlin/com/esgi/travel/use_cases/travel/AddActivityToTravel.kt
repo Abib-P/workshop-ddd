@@ -17,7 +17,7 @@ class AddActivityToTravel(
             travel.attendants.find { attendant -> attendant.id == attendantId } ?: throw Exception("Attendant not found")
         }
 
-        activityService.canAddToTravel(activity, attendants)
+        activityService.checkCanAddToTravel(activity, attendants)
 
         travel.addActivity(activity, attendants)
         travels.save(travel)
