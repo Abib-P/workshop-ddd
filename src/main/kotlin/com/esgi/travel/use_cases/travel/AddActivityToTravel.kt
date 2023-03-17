@@ -20,9 +20,18 @@ class AddActivityToTravel(val travels: Travels, val activities: Activities) {
             if(!activity.canParticipate(attendant)) {
                 throw Exception("Attendant can't participate to this activity")
             }
+            val attendantActivities = travel.getAttendantActivities(attendant)
+            for(attendantActivityId in attendantActivities) {
+                val attendantActivity = activities.getById(attendantActivityId) ?: throw Exception("Activity not found")
+                if(attendantActivity.duration.overlaps(activity.duration)) {
+                    throw Exception("Attendant already has an activity at this time")
+                }
+            }
         }
 
-        travel.addActivity(activity)
+
+
+        travel.addActivity(activity, attendants)
         travels.save(travel)
     }
 }

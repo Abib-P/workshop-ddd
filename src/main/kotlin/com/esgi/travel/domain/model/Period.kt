@@ -8,4 +8,8 @@ class Period(val start: LocalDateTime, val end: LocalDateTime) {
             throw IllegalArgumentException("start must be before end")
         }
     }
+
+    fun overlaps(other: Period): Boolean {
+        return start.isBefore(other.end) && end.isAfter(other.start)
+    }
 }

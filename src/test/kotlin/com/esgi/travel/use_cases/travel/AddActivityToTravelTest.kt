@@ -68,7 +68,7 @@ class AddActivityToTravelTest {
                 ),
                 budget = Budget(0.0, 100.0),
                 state = TravelState.OPENED,
-                activitiesIds = listOf()
+                activitiesIds = mapOf()
         ))
 
         assertDoesNotThrow { addActivity.addActivityToTravel(AddActivityToTravelRequest(GenericID.EMPTY, GenericID.EMPTY, listOf(GenericID("1"), GenericID("2")))) }
@@ -115,7 +115,7 @@ class AddActivityToTravelTest {
                 ),
                 budget = Budget(0.0, 100.0),
                 state = TravelState.OPENED,
-                activitiesIds = listOf()
+                activitiesIds = mapOf()
             ))
 
         assertThrows<Exception> { addActivity.addActivityToTravel(AddActivityToTravelRequest(GenericID.EMPTY, GenericID.EMPTY, listOf(GenericID("1"), GenericID("2")))) }
@@ -161,7 +161,7 @@ class AddActivityToTravelTest {
                 ),
                 budget = Budget(0.0, 100.0),
                 state = TravelState.OPENED,
-                activitiesIds = listOf()
+                activitiesIds = mapOf()
             ))
 
         assertThrows<Exception> { addActivity.addActivityToTravel(AddActivityToTravelRequest(GenericID.EMPTY, GenericID.EMPTY, listOf(GenericID("1"), GenericID("2")))) }
@@ -207,7 +207,7 @@ class AddActivityToTravelTest {
                 ),
                 budget = Budget(0.0, 100.0),
                 state = TravelState.OPENED,
-                activitiesIds = listOf()
+                activitiesIds = mapOf()
             ))
 
         assertThrows<Exception> { addActivity.addActivityToTravel(AddActivityToTravelRequest(GenericID.EMPTY, GenericID.EMPTY, listOf(GenericID("1"), GenericID("2")))) }
@@ -265,7 +265,7 @@ class AddActivityToTravelTest {
                 ),
                 budget = Budget(0.0, 100.0),
                 state = TravelState.OPENED,
-                activitiesIds = listOf()
+                activitiesIds = mapOf()
             ))
 
         assertThrows<Exception> { addActivity.addActivityToTravel(AddActivityToTravelRequest(GenericID.EMPTY, GenericID.EMPTY, listOf(GenericID("1"), GenericID("2")))) }

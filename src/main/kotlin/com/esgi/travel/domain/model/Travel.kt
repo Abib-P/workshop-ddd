@@ -8,15 +8,19 @@ class Travel(
     val attendants: List<Attendant>,
     val budget: Budget,
     val state: TravelState,
-    val activitiesIds: List<GenericID>,
+    val activitiesIds: Map<GenericID, List<GenericID>>,
 ) : Entity(id) {
 
     init {
 
     }
 
-    fun addActivity(activity: Activity){
-        activitiesIds.plus(activity.id)
+    fun addActivity(activity: Activity, attendants: List<Attendant>){
+        activitiesIds.plus(activity.id to attendants.map { it.id })
+    }
+
+    fun getAttendantActivities(attendant: Attendant): List<GenericID> {
+        return activitiesIds.filter { it.value.contains(attendant.id) }.keys.map { it }
     }
 
 }
