@@ -73,12 +73,8 @@ class InMemoryActivities : Activities {
     )
 
     //todo faire le filter ici? (ptetre mieux de faire ça dans le service)
-    override fun searchActivities(searchActivityRequest: SearchActivityRequest): List<Activity> {
+    override fun fetchActivities(): List<Activity> {
         return activities
-            .filter { it.address.city == searchActivityRequest.city && it.address.country == searchActivityRequest.country }
-            .filter { it.price <= searchActivityRequest.maxPrice && it.price >= searchActivityRequest.minPrice }
-            .filter { it.duration.start.isAfter(searchActivityRequest.startDate) }
-            .filter { it.duration.end.isBefore(searchActivityRequest.endDate) }
     }
 
     override fun getById(activityId: GenericID): Activity? {

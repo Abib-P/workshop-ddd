@@ -28,7 +28,7 @@ class SearchActivityTest {
 
     @Test
     fun `should return a list of activities`() {
-        whenever(activities.searchActivities(any())).thenReturn(listOf(Activity(
+        whenever(activities.fetchActivities(any())).thenReturn(listOf(Activity(
             id = GenericID.EMPTY,
             name = "Activity name",
             description = "Activity description",
