@@ -65,12 +65,14 @@ class InMemoryActivities : Activities {
                     .plus(Duration.ofDays(3))
             ),
             listOf<ActivityRestriction>(
+                AgeActivityRestriction(18, 99)
             ),
             Address("Godzilla Road", "Tokyo", "Japon"),
             10
         ),
     )
 
+    //todo faire le filter ici? (ptetre mieux de faire ça dans le service)
     override fun searchActivities(searchActivityRequest: SearchActivityRequest): List<Activity> {
         return activities
             .filter { it.address.city == searchActivityRequest.city && it.address.country == searchActivityRequest.country }

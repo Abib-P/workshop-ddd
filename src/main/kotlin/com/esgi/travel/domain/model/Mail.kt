@@ -9,4 +9,19 @@ class Mail(val mail: String) {
             throw IllegalArgumentException("Mail must contain @")
         }
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Mail
+
+        if (mail != other.mail) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return mail.hashCode()
+    }
 }
