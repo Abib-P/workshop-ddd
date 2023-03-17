@@ -8,6 +8,4 @@ class Period(val start: LocalDateTime, val end: LocalDateTime) {
             throw IllegalArgumentException("start must be before end")
         }
     }
-
-
 }
